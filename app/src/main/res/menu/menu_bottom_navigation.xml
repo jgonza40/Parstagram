@@ -5,16 +5,16 @@
     <item
         android:id="@+id/action_home"
         android:icon="@drawable/home"
-        android:title="Home"
+        android:title="home"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_compose"
         android:icon="@drawable/compose"
-        android:title="Compose"
+        android:title="compose"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_profile"
         android:icon="@drawable/profile_icon"
-        android:title="Profile"
+        android:title="profile"
         app:showAsAction="always" />
 </menu>
