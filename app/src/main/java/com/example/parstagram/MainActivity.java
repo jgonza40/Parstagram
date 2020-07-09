@@ -88,9 +88,8 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.action_settings) {
             // Composed icon has been tapped
             // Navigate to the compose activity
-            Toast.makeText(this, "settings", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, Settings.class);
-            startActivityForResult(intent, REQUEST_CODE);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
