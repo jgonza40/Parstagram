@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tvDetailsUsername"
+        android:id="@+id/tvDetUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -16,7 +16,7 @@
         tools:text="jgonza40" />
 
     <ImageView
-        android:id="@+id/ivDetailsImage"
+        android:id="@+id/ivDetImage"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginTop="5dp"
@@ -24,7 +24,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/tvDetailsDescription"
+        android:id="@+id/tvDetDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -34,7 +34,7 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/tvDetailsDate"
+        android:id="@+id/tvDetDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
