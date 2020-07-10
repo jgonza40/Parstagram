@@ -23,6 +23,7 @@ public class Details extends AppCompatActivity {
     private ImageView ivImage;
     private TextView tvDate;
     private ImageView ivProfileImage;
+    private TextView tvUsername2;
     private static final int SECOND_MILLIS = 1000;
     private static final int MINUTE_MILLIS = 60 * SECOND_MILLIS;
     private static final int HOUR_MILLIS = 60 * MINUTE_MILLIS;
@@ -41,10 +42,12 @@ public class Details extends AppCompatActivity {
         ivImage = findViewById(R.id.ivDetImage);
         tvDate = findViewById(R.id.tvDetDate);
         ivProfileImage = findViewById(R.id.ivDetProfileImage);
+        tvUsername2 = findViewById(R.id.tvDetUsername2);
 
         tvUsername.setText(post.getUser().getUsername());
         tvDescription.setText(post.getDescription());
         tvDate.setText(getRelativeTimeAgo(post.getCreatedAt().toString()));
+        tvUsername2.setText(post.getUser().getUsername());
         ParseFile image = post.getImage();
         if(image != null){
             Glide.with(getApplicationContext())

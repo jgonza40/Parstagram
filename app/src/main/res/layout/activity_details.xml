@@ -48,8 +48,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivDetImage"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@+id/tvDetUsername2"
         android:text="hello world ! :)"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
@@ -66,4 +68,16 @@
         android:text="07/08/2020"
         android:textColor="#959595"
         android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tvDetUsername2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivDetImage"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp"
+        android:fontFamily="sans-serif"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 </RelativeLayout>

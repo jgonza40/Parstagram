@@ -12,13 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Description..." />
+        android:hint="Description..."
+        android:backgroundTint="#33FFFFFF"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btnCaptureImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Take Picture" />
+        android:layout_marginTop="8dp"
+        android:background="#33FFFFFF"
+        android:text="Take Picture"
+        android:textColor="#FFFFFF" />
 
     <ImageView
         android:id="@+id/ivPostImage"
@@ -29,6 +34,8 @@
         android:id="@+id/btnSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#33FFFFFF"
+        android:textColor="#FFFFFF"
         android:text="Submit"/>
 
 </LinearLayout>
