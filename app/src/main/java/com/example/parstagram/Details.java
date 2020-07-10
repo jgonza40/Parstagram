@@ -42,7 +42,7 @@ public class Details extends AppCompatActivity {
         tvDate = findViewById(R.id.tvDetDate);
         ivProfileImage = findViewById(R.id.ivDetProfileImage);
 
-        tvUsername.setText("@" + post.getUser().getUsername());
+        tvUsername.setText(post.getUser().getUsername());
         tvDescription.setText(post.getDescription());
         tvDate.setText(getRelativeTimeAgo(post.getCreatedAt().toString()));
         ParseFile image = post.getImage();

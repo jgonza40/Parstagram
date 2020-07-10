@@ -23,6 +23,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/menu_bottom_navigation" />
+        android:background="#1c1c1c"
+        app:itemIconTint="#FFFFFF"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/menu_bottom_navigation"
+        app:itemIconSize="@dimen/bottom_navigation_icon_size"/>
 
 </RelativeLayout>

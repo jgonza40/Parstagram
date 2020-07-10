@@ -90,7 +90,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         public void bind(final Post post){
             // Bind the post data to the view elements
             tvDescription.setText(post.getDescription());
-            tvUsername.setText("@" + post.getUser().getUsername());
+            tvUsername.setText(post.getUser().getUsername());
             tvDate.setText(getRelativeTimeAgo(post.getCreatedAt().toString()));
             ParseFile image = post.getImage();
             if(image != null){
