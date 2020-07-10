@@ -22,6 +22,7 @@ public class Details extends AppCompatActivity {
     private TextView tvDescription;
     private ImageView ivImage;
     private TextView tvDate;
+    private ImageView ivProfileImage;
     private static final int SECOND_MILLIS = 1000;
     private static final int MINUTE_MILLIS = 60 * SECOND_MILLIS;
     private static final int HOUR_MILLIS = 60 * MINUTE_MILLIS;
@@ -39,6 +40,7 @@ public class Details extends AppCompatActivity {
         tvDescription = findViewById(R.id.tvDetDescription);
         ivImage = findViewById(R.id.ivDetImage);
         tvDate = findViewById(R.id.tvDetDate);
+        ivProfileImage = findViewById(R.id.ivDetProfileImage);
 
         tvUsername.setText("@" + post.getUser().getUsername());
         tvDescription.setText(post.getDescription());
@@ -49,6 +51,11 @@ public class Details extends AppCompatActivity {
                     .load(image.getUrl())
                     .into(ivImage);
         }
+        Glide.with(getApplicationContext())
+                .load(getResources().getDrawable(R.drawable.profile_feed))
+                .placeholder(R.mipmap.profile_feed)
+                .circleCrop()
+                .into(ivProfileImage);
     }
     // The purpose of this method is to get appropriate time stamps
     public String getRelativeTimeAgo(String rawJsonDate) {
