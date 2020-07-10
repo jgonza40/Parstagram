@@ -7,6 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ComposeFragment">
 
+    <ProgressBar
+        android:id="@+id/pbLoading"
+        android:visibility="invisible"
+        android:backgroundTint="@color/indigo_500"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/etDescription"
         android:layout_width="match_parent"
@@ -29,13 +36,16 @@
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        tools:srcCompat="@tools:sample/avatars"/>
+        android:layout_marginTop="8dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <Button
         android:id="@+id/btnSubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:background="#33FFFFFF"
-        android:textColor="#FFFFFF"
-        android:text="Submit"/>
+        android:text="Submit"
+        android:textColor="#FFFFFF" />
 
 </LinearLayout>
