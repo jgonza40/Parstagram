@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -24,18 +23,14 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.parstagram.MainActivity;
 import com.example.parstagram.Post;
 import com.example.parstagram.R;
-import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import java.io.File;
-import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -55,7 +50,6 @@ public class ComposeFragment extends Fragment {
     public ComposeFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -84,11 +78,11 @@ public class ComposeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 String description = etDescription.getText().toString();
-                if (description.isEmpty()){
+                if (description.isEmpty()) {
                     Toast.makeText(getContext(), "caption cannot be blank :(", Toast.LENGTH_LONG).show();
                     return;
                 }
-                if(photoFile == null ||ivPostImage.getDrawable() == null){
+                if (photoFile == null || ivPostImage.getDrawable() == null) {
                     Toast.makeText(getContext(), "there is no image!", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -97,7 +91,6 @@ public class ComposeFragment extends Fragment {
                 Log.i(TAG, pb.toString());
                 pb.setVisibility(ProgressBar.VISIBLE);
                 savePost(description, currentUser, photoFile);
-                //pb.setVisibility(ProgressBar.INVISIBLE);
             }
         });
     }
@@ -129,7 +122,6 @@ public class ComposeFragment extends Fragment {
             if (resultCode == RESULT_OK) {
                 // by this point we have the camera photo on disk
                 Bitmap takenImage = BitmapFactory.decodeFile(photoFile.getAbsolutePath());
-                // RESIZE BITMAP, see section below
                 // Load the taken image into a preview
                 ivPostImage.setImageBitmap(takenImage);
             } else { // Result was a failure
@@ -146,7 +138,7 @@ public class ComposeFragment extends Fragment {
         File mediaStorageDir = new File(getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), TAG);
 
         // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
+        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()) {
             Log.d(TAG, "failed to create directory");
         }
 
@@ -162,7 +154,7 @@ public class ComposeFragment extends Fragment {
         post.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
-                if(e != null){
+                if (e != null) {
                     Log.e(TAG, "Error while saving", e);
                     Toast.makeText(getContext(), "error while saving!", Toast.LENGTH_LONG).show();
                     return;
@@ -170,9 +162,9 @@ public class ComposeFragment extends Fragment {
                 Log.i(TAG, "post was saved successfully!");
                 etDescription.setText("");
                 ivPostImage.setImageResource(0);
+                // Setting pb to invisible once post is submitted
                 pb.setVisibility(View.INVISIBLE);
             }
         });
     }
-
 }

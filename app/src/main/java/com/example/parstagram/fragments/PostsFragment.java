@@ -33,11 +33,9 @@ public class PostsFragment extends Fragment {
     protected List<Post> allPosts;
     private SwipeRefreshLayout swipeContainer;
 
-
     public PostsFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,10 +63,6 @@ public class PostsFragment extends Fragment {
             }
         });
         adapter = new PostsAdapter(getContext(), allPosts);
-        // Steps for Recycler View
-        // 0. Create a layout for one row in the list
-        // 1. Create the adapter
-        // 2. Create the data source
         // 3. Set the adapter on the recycler view
         rvPosts.setAdapter(adapter);
         rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -85,11 +79,11 @@ public class PostsFragment extends Fragment {
         query.findInBackground(new FindCallback<Post>() {
             @Override
             public void done(List<Post> posts, ParseException e) {
-                if(e != null){
+                if (e != null) {
                     Log.e(TAG, "Issue with getting posts", e);
                     return;
                 }
-                for(Post post: posts){
+                for (Post post : posts) {
                     Log.i(TAG, "Post: " + post.getDescription() + ", Username: " + post.getUser().getUsername());
                 }
                 adapter.clear();

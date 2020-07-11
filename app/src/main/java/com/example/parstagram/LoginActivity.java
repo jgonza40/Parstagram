@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
@@ -32,14 +31,16 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         constraintLayout = findViewById(R.id.constraintLayout);
-        AnimationDrawable animationDrawable =(AnimationDrawable) constraintLayout.getBackground();
+        // This deals with the Login screen animation (changing colors)
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
         animationDrawable.setEnterFadeDuration(5000);
         animationDrawable.setExitFadeDuration(2000);
         animationDrawable.start();
-
+        // Makes sure that current user remains during app restarts
         if (ParseUser.getCurrentUser() != null) {
             goMainActivity();
         }
+        // Declaring all of the components
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
@@ -109,5 +110,4 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(i);
         finish();
     }
-
 }

@@ -36,14 +36,14 @@ public class Details extends AppCompatActivity {
         setContentView(R.layout.activity_details);
         post = (Post) Parcels.unwrap(getIntent().getParcelableExtra(Post.class.getSimpleName()));
         Log.d(TAG, String.format("Showing details for '%s'", post.getUser().getUsername()));
-
+        // Declaring all of the components
         tvUsername = findViewById(R.id.tvDetUsername);
         tvDescription = findViewById(R.id.tvDetDescription);
         ivImage = findViewById(R.id.ivDetImage);
         tvDate = findViewById(R.id.tvDetDate);
         ivProfileImage = findViewById(R.id.ivDetProfileImage);
         tvUsername2 = findViewById(R.id.tvDetUsername2);
-
+        // Setting all of the components
         tvUsername.setText(post.getUser().getUsername());
         tvDescription.setText(post.getDescription());
         tvDate.setText(getRelativeTimeAgo(post.getCreatedAt().toString()));
@@ -60,6 +60,7 @@ public class Details extends AppCompatActivity {
                 .circleCrop()
                 .into(ivProfileImage);
     }
+
     // The purpose of this method is to get appropriate time stamps
     public String getRelativeTimeAgo(String rawJsonDate) {
         String twitterFormat = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";

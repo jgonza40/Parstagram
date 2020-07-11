@@ -8,10 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
+
 import org.parceler.Parcels;
 
 import java.text.ParseException;
@@ -52,7 +55,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
         return posts.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView tvUsername;
         private TextView tvDescription;
@@ -89,14 +92,14 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             }
         }
 
-        public void bind(final Post post){
+        public void bind(final Post post) {
             // Bind the post data to the view elements
             tvDescription.setText(post.getDescription());
             tvUsername.setText(post.getUser().getUsername());
             tvUsername2.setText(post.getUser().getUsername());
             tvDate.setText(getRelativeTimeAgo(post.getCreatedAt().toString()));
             ParseFile image = post.getImage();
-            if(image != null){
+            if (image != null) {
                 Glide.with(context)
                         .load(image.getUrl())
                         .into(ivImage);
@@ -106,8 +109,8 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                     .placeholder(R.mipmap.profile_feed)
                     .circleCrop()
                     .into(ivProfileImage);
-                            //.placeholder(R.mipmap.icon).into(ivProfileImage);
         }
+
         // The purpose of this method is to get appropriate time stamps
         public String getRelativeTimeAgo(String rawJsonDate) {
             String twitterFormat = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
@@ -116,7 +119,6 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             try {
                 long time = sf.parse(rawJsonDate).getTime();
                 long now = System.currentTimeMillis();
-
                 final long diff = now - time;
                 if (diff < MINUTE_MILLIS) {
                     return "just now";
@@ -140,6 +142,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
             return "";
         }
     }
+
     // Clean all elements of the recycler
     public void clear() {
         posts.clear();
